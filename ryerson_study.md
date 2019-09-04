@@ -4,3 +4,4 @@ Dr. Alyssa Counsell in the Department of Psychology at Ryerson is interested in 
      https://ryersonpsych.co1.qualtrics.com/jfe/form/SV_esTn5iqWfWOqwLz
 
 The online survey is open until September 30, 2019. 
+
