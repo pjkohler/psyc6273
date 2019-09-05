@@ -1,12 +1,31 @@
 %% code1_intro.m  Basics of MATLAB programming
 
 
-%% variables and expressions
+%% working directory
 
 % MATLAB commands are written in m files, e.g., code1_intro.m
 
 % percent sign is used for comments
 % two percent signs (%%) divide code into sections (cells)
+
+pwd     % show present working directory
+
+ls      % show contents of working directory
+
+cd /Users/rfm/Desktop  % move to new working directory
+cd ..                  % move up one directory
+cd Desktop             % move down one directory
+
+pathtool  % show MATLAB path
+
+% to run code from an m file ...
+% - copy and paste lines into command window (awkward)
+% - select code and press command-R (macOS)
+% - press F5 (macOS) to run whole file (usually not useful with these demo files)
+% - can also customize keyboard shortcuts in MATLAB preferences
+
+
+%% variables and expressions
 
 % assigning values to variables
 x = 4
