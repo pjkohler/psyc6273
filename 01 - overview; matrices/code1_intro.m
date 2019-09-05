@@ -20,7 +20,7 @@ pathtool  % show MATLAB path
 
 % to run code from an m file ...
 % - copy and paste lines into command window (awkward)
-% - select code and press F9
+% - select code and press shift-F7 (macOS) or F9 (PC)
 % - press F5 to run whole file (usually not useful with these demo files)
 % - can also customize keyboard shortcuts in MATLAB preferences
 
@@ -34,8 +34,6 @@ x=4  % spacing is not important
 
 clc  % clear command window; doesn't affect variables (can also use cmd-k)
 % use up arrow to revisit previous commands
-% evaluate selection:  shift-F7 (F9 on PC) (or customize)
-% can customize keyboard shortcuts in preferences
 
 % use descriptive variable names
 x1 = 3;
