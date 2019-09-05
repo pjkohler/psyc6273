@@ -20,8 +20,8 @@ pathtool  % show MATLAB path
 
 % to run code from an m file ...
 % - copy and paste lines into command window (awkward)
-% - select code and press command-R (macOS)
-% - press F5 (macOS) to run whole file (usually not useful with these demo files)
+% - select code and press F9
+% - press F5 to run whole file (usually not useful with these demo files)
 % - can also customize keyboard shortcuts in MATLAB preferences
 
 
