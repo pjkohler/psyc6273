@@ -16,7 +16,7 @@ cd /Users/rfm/Desktop  % move to new working directory
 cd ..                  % move up one directory
 cd Desktop             % move down one directory
 
-pathtool  % show MATLAB path
+pathtool  % show and edit MATLAB path
 
 % to run code from an m file ...
 % - copy and paste lines into command window (awkward)
@@ -47,9 +47,9 @@ cos = 4;  % shouldn't use function names
 
 % clearing and inspecting variables
 clear           % clear all variables
-clear x x1 sin  % clear specific variables
+clear x x1 cos  % clear specific variables
 who             % list variables
-whos            % list variables with information about size, etc.
+whos            % list variables with information about type, size, etc.
 
 % using expressions
 x = 5
