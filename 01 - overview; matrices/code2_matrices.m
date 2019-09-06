@@ -10,15 +10,15 @@
 
 a = [ 1 2 3 ; 4 5 6 ]   % enter values manually
 a = [ 1 ; 2 ; 3 ]
-a = 1:10                % a numerical sequence
-a = 1:2:10              % a numerical sequence
-a = linspace(1,5,20)    % a numerical sequence
+a = 1:10                % sequence
+a = 1:2:10              % sequence
+a = linspace(1,5,20)    % sequence
 a = zeros(3,5)          % matrix of zeros
 a = ones(3,5)           % matrix of ones
 a = rand(3,5)           % uniform random values
 a = randn(3,5)          % normal random values
 a = [];                 % empty matrix
-a = rand(3,3,2)         % three dimensional matrices
+a = rand(3,3,2)         % three dimensional matrix
 
 a = [ 4 8 9 ];
 b = [ 2 3 ];
@@ -32,7 +32,7 @@ b = 3 * a        % scalar multiplication
 c = a + b        % matrix addition
 c = a * b        % matrix multiplication
 c = a .* b       % pointwise multiplication; also a./b, a.^b
-c = 10 * a + 3   % scalar-matrix multiplication and addition
+c = 10 * a + 3   % scalar multiplication and addition
 
 
 
@@ -41,7 +41,7 @@ c = 10 * a + 3   % scalar-matrix multiplication and addition
 a = rand(3,5);
 dim = size(a)
 [m,n] = size(a)
-b = numel(a)
+k = numel(a)
 b = reshape(a,[ 1 15 ])
 b = repmat(a,[ 2 3 ])
 
