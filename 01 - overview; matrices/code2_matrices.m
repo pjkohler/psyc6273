@@ -17,7 +17,7 @@ a = zeros(3,5)          % matrix of zeros
 a = ones(3,5)           % matrix of ones
 a = rand(3,5)           % uniform random values
 a = randn(3,5)          % normal random values
-a = [];                 % empty matrix
+a = []                  % empty matrix
 a = rand(3,3,2)         % three dimensional matrix
 
 a = [ 4 8 9 ];

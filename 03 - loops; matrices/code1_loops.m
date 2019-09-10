@@ -1,4 +1,4 @@
-%% code1_loops.m  Demonstration code for MATLAB loops
+%% code1_loops.m  Demonstration code for loops
 
 
 %% for loop
