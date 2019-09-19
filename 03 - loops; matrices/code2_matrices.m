@@ -60,10 +60,11 @@ a( 1:3 ) = []         % delete several elements
 %% logical indices
 
 a = rand( 3 );
-b = a > 0.5          % get a matrix of ones and zeros that indicate which
-                     % elements meet some criterion
 
-k = sum( b(: ))      % count the elements that meet the criterion
+b = a > 0.5            % get a matrix of ones and zeros that indicate which
+                       % elements meet some criterion
+
+k = sum( b(:) )        % count the elements that meet the criterion
 k = sum( a(:) > 0.5 )  % same thing, more concisely
                 
 c = a( b )           % get the elements that meet the criterion
