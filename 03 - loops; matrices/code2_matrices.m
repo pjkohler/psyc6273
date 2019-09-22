@@ -17,30 +17,30 @@ c = sin( a )      % pass a matrix to a mathematical function, get a matrix back
 c = inv( a )      % matrix inverse
 c = a'            % matrix transpose
 
-min( a )          % minimum of each column, or of a row vector
-min( a, [], 1 )   % minimum of each column
-min( a, [], 2 )   % minimum of each row
+min( a )          % minimum over rows
+min( a, [], 1 )   % minimum over rows
+min( a, [], 2 )   % minimum over columns
 
 min( min( a ) )   % minimum of a whole m x n matrix
 min( a(:) )       % minimum of a whole matrix
 
-max( a )          % maximum of each column, or of a row vector
-max( a, [], 1 )   % maximum of each column
-max( a, [], 2 )   % maximum of each row
+max( a )          % maximum over rows
+max( a, [], 1 )   % maximum over rows
+max( a, [], 2 )   % maximum over columns
 
-sum( a )          % sum of each column, or of a row vector
-sum( a, 1 )       % sum of each column
-sum( a, 2 )       % sum of each row
+sum( a )          % sum over rows
+sum( a, 1 )       % sum over rows
+sum( a, 2 )       % sum over columns
 
-prod( a )         % product of each column, or of a row vector
-prod( a, 1 )      % product of each column
-prod( a, 2 )      % product of each row
+prod( a )         % product over rows
+prod( a, 1 )      % product over rows
+prod( a, 2 )      % product over columns
 
 
 %% more matrix related functions
 
 a = rand( 3, 5 );
-b = length( a )
+b = numel( a )
 b = fliplr( a )
 b = flipud( a )
 b = rot90( a, 1 )

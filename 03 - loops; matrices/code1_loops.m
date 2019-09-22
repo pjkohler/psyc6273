@@ -103,7 +103,7 @@ fprintf('the first factorial greater than %d is %d! = %d\n',m,i,factorial(i));
 % note!  we usually don't loop over elements in vectors and matrices
 
 % version 1
-for i = 1:length(v)
+for i = 1:numel(v)
     v(i) = 3*v(i);
 end
 
