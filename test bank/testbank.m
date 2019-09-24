@@ -32,6 +32,30 @@ x = m( :, end );
 % number of elements in m.
 c = numel( m );
 
+% 4e.  Make x a row vector with elements that are the maximum of each row
+% of m.
+x = max( m, [], 2 )';
+% OR
+x = max( m' );
+
+% 4f.  Make x equal to all the elements of m that are greater than zero.
+x = m( m>0 );
+
+% 4g.  Make x equal to all the elements of m that are less than -1 or
+% greater than 1.
+x = m( m<-1 | m>1 );
+
+% 4h.  Make x equal to one if all elements of m are greater than zero, and
+% zero otherwise.
+x = all( m(:)>0 );
+
+% 4i.  Set any elements of m in the third column that are less than zero to
+% NaN.
+m( m(:,3)<0, 3 ) = NaN;
+
+% 4j.  Set any rows of m that have a value less than -1.5 to NaN.
+m( min(m,[],2)<-1.5, : ) = NaN;
+
 % 5.  Write code that will set the variable s to -1 if x is less than zero,
 % set s to 0 if x is equal to zero, and set s to 1 if x is greater than
 % zero.  The value NaN does not meet any of these conditions, so if x does
@@ -54,5 +78,20 @@ end
 % 7.  Write a function called testit.m that takes two arguments, and
 % returns -1 if the first argument is greater, 0 if they are equal, and 1
 % if the second argument is greater.
+
+% 8.  Write a for loop that prints all the prime numbers between 1 and 100.
+for k = 1:100
+    if isprime(k)
+        fprintf('%d\n',k);
+    end
+end
+
+% 9.  Write a while loop that finds the first prime number greater than 100.
+i = 100;
+while ~isprime( i )
+    i = i + 1;
+end
+fprintf('the first prime greater than 100 is %d\n',i);
+
 
 % solution:  see testit.m
