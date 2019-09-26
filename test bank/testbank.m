@@ -56,6 +56,19 @@ m( m(:,3)<0, 3 ) = NaN;
 % 4j.  Set any rows of m that have a value less than -1.5 to NaN.
 m( min(m,[],2)<-1.5, : ) = NaN;
 
+% 4k.  Set x to the number of elements in m that are greater than 2.
+x = sum( m(:)>2 );
+
+% 4l.  Delete the fourth row of m.
+m(4,:) = [];
+
+% 4m.  Set the fourth column of m to zero in rows where the third column is
+% less than zero.
+m( m(:,3)<0, 4 ) = 0;
+
+% 4n.  Set x to the rows of m that are less than zero in the third column.
+x = m( m(:,3)<0, : );
+
 % 5.  Write code that will set the variable s to -1 if x is less than zero,
 % set s to 0 if x is equal to zero, and set s to 1 if x is greater than
 % zero.  The value NaN does not meet any of these conditions, so if x does
@@ -79,6 +92,8 @@ end
 % returns -1 if the first argument is greater, 0 if they are equal, and 1
 % if the second argument is greater.
 
+% solution:  see testit.m
+
 % 8.  Write a for loop that prints all the prime numbers between 1 and 100.
 for k = 1:100
     if isprime(k)
@@ -93,5 +108,10 @@ while ~isprime( i )
 end
 fprintf('the first prime greater than 100 is %d\n',i);
 
+% 10.  Write Psychtoolbox code that will open a grey window to cover
+% the whole screen.
+winID = Screen('OpenWindow', 0, 128 );
 
-% solution:  see testit.m
+% 11.  Write Psychtoolbox code that nulls the colour lookup table.
+gtable = repmat( linspace(0,1,256)', [ 1 3 ] );
+Screen('LoadNormalizedGammaTable',winID,gtable);
