@@ -38,7 +38,7 @@ Screen OpenWindow?   % get help on a specific Screen command
 %% part 3 -- showing things onscreen
 
 % open main window
-[winID,winRect] = Screen('OpenWindow', 0, 128 );
+winID = Screen('OpenWindow', 0, 128 );
 pause(0.5);
 
 % make a square of coloured noise and write it to the onscreen window
@@ -83,7 +83,7 @@ strcmp( b, 'abc' )
 any( strcmp( b, 'abc' ) )
 
 % open main window
-[winID,winRect] = Screen('OpenWindow', 0, 128 );
+winID = Screen('OpenWindow', 0, 128 );
 
 % turn off keyboard echoing; can undo this by typing control-C
 ListenChar(2);
@@ -98,7 +98,7 @@ while 1
     key = KbName(keycode);
     
     % check the key name
-    if any(strcmp(key,'0)')==1) || any(strcmp(key,'1!')==1) || any(strcmp(key,'2@')==1)
+    if any(strcmp(key,'0)')) || any(strcmp(key,'1!')) || any(strcmp(key,'2@'))
         break
     end
     
@@ -125,7 +125,7 @@ Screen('Close',winID);  % close window
 %% part 5 -- offscreen windows
 
 % open main window
-[winID,winRect] = Screen('OpenWindow', 0, 128 );
+winID = Screen('OpenWindow', 0, 128 );
 
 % make some image matrices
 n = 256;
@@ -153,6 +153,7 @@ Screen('CopyWindow',offID2,winID,[ 0 0 n n ],[ 100 100 100+n 100+n ]);
 Screen('Flip',winID,t+2);
 Screen('CopyWindow',offID3,winID,[ 0 0 n n ],[ 100 100 100+n 100+n ]);
 Screen('Flip',winID,t+3);
+pause(1);
 
 Screen('Close',winID);
 
@@ -183,5 +184,6 @@ Screen('DrawTexture',winID,offID2,[ 0 0 n n ],[ 0 0 n n ]);
 Screen('Flip',winID,t+2);
 Screen('DrawTexture',winID,offID3,[ 0 0 n n ],[ 0 0 n n ]);
 Screen('Flip',winID,t+3);
+pause(1);
 
 Screen('Close',winID);
