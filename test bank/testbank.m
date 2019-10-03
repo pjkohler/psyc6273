@@ -69,6 +69,13 @@ m( m(:,3)<0, 4 ) = 0;
 % 4n.  Set x to the rows of m that are less than zero in the third column.
 x = m( m(:,3)<0, : );
 
+% 4o.  Set f equal to the linear indices of the elements of m that are less
+% than zero.
+f = find( m<0 );
+
+% 4p.  Use find() to set the elements of m that are less than zero to NaN.
+m( find(m<0) ) = NaN;
+
 % 5.  Write code that will set the variable s to -1 if x is less than zero,
 % set s to 0 if x is equal to zero, and set s to 1 if x is greater than
 % zero.  The value NaN does not meet any of these conditions, so if x does
