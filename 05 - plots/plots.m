@@ -55,8 +55,8 @@ h = plot( x, y, 'ro-' );
 set( h, 'LineWidth', 3, 'MarkerSize', 10, 'MarkerEdgeColor', 'g', ...
     'MarkerFaceColor', 'g' );  % set some line properties
 
-get( h )           % see what properties the axes have
-set( h, 'XScale')  % see what values the XScale property could be set to
+get( h )              % see what properties the axes have
+set( h, 'LineStyle')  % see what values the LineStyle property could be set to
 
 set( gca, 'XLim', [ -pi pi ], 'YLim', [ -1.1 1.1 ] );  % set the axis limits
 set( gca, 'FontName', 'helvetica', 'FontWeight', 'bold', 'FontSize', 18 );  % set the font

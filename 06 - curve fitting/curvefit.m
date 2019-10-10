@@ -29,7 +29,7 @@ myfn([ 2 3 ])
 % make an inline function to minimize
 minfn = @( x ) x.^2;
 
-% minimize it
+% find the input value that minimizes it
 xhat = fminsearch( minfn, 1 )
 
 % show results
