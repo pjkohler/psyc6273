@@ -3,13 +3,17 @@ function [ x, y ] = randpos( t, tau )
 % RANDPOS  Return ( x, y ) coordinates that change smoothly and
 %          pseudorandomly over time
 % 
-% usage:  [ x, y ] = randpos( t )
+% usage:  [ x, y ] = randpos( t, tau )
 % 
 %   if t is the string 'init', then the function initializes itself and
-%     creates a new random trajectory.
+%     creates a new random trajectory
 % 
 %   if t is a real number, then the return arguments ( x, y ) are the
 %     coordinates of the position calculated for time t.
+% 
+%   tau is the duration (in seconds) of the entire trajectory.
+%     the trajectory is generated so that after tau seconds it ends up
+%     back at its starting point.
 % 
 %   x and y are always in the range -1 to 1.
 
