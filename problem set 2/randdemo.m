@@ -11,7 +11,7 @@ figure(1);
 hold on;
 axis( [ -1 1 -1 1 ] );
 
-% choose trial duration
+% choose trial duration (seconds)
 tau = 10;
 
 % plot trajectory over time 0 to tau seconds

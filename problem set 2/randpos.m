@@ -6,7 +6,7 @@ function [ x, y ] = randpos( t, tau )
 % usage:  [ x, y ] = randpos( t )
 % 
 %   if t is the string 'init', then the function initializes itself and
-%     creates a new random trajectory
+%     creates a new random trajectory.
 % 
 %   if t is a real number, then the return arguments ( x, y ) are the
 %     coordinates of the position calculated for time t.
