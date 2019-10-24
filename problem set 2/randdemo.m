@@ -11,7 +11,7 @@ figure(1);
 hold on;
 axis( [ -1 1 -1 1 ] );
 
-% choose trial duration (seconds)
+% choose trial duration
 tau = 10;
 
 % plot trajectory over time 0 to tau seconds
@@ -20,7 +20,7 @@ while 1
     
     % get current position
     [ x, y ] = randpos( toc, tau );
-    plot( x, y, 'ro' );
+    plot( x, y, 'ro', 'MarkerFaceColor', 'r' );
     drawnow;
     
     % check the time
