@@ -3,13 +3,12 @@
 
 ### Upcoming events
 
-**September 19.**  Term project proposal due
+**October 31.**  Test 4
 
-**September 19.**  Test 1
+**November 14.**  Test 5
 
-**October 3.**  Test 2
+**November 28.**  Test 6
 
-**October 10.**  Test 3
+**November 28.**  Problem set 28 due
 
-**October 24.**  Problem set 1 due
-
+**December 12.**  Term project due
