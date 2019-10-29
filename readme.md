@@ -9,6 +9,6 @@
 
 **November 28.**  Test 6
 
-**November 28.**  Problem set 28 due
+**November 28.**  Problem set 2 due
 
 **December 12.**  Term project due
