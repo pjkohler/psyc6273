@@ -122,3 +122,54 @@ winID = Screen('OpenWindow', 0, 128 );
 % 11.  Write Psychtoolbox code that nulls the colour lookup table.
 gtable = repmat( linspace(0,1,256)', [ 1 3 ] );
 Screen('LoadNormalizedGammaTable',winID,gtable);
+
+% 12.  Set a = 3.14 and b = 'abc'.  Use fprintf() to print the following
+% message:  The value of a is 3.1400 and the value of b is 'abc'.
+a = 3.14;
+b = 'abc';
+fprintf('The value of a is %.4f and the value of b is ''%s''.\n',a,b);
+
+% 13.  Use fprintf() to write the prime numbers between 1 and 100 to a text
+% file called prime.txt
+fid = fopen('prime.txt','w');
+for i = 1:100
+    if isprime(i)
+        fprintf(fid,'%.0f\n',i);
+    end
+end
+fclose(fid);
+
+% 14.  Set x equal to 20 samples from -pi to pi.  Set y equal to the tangent
+% of x.  Plot y versus x with a solid green line and no data point markers.
+% Label the axes 'angle' and 'tangent'.
+x = linspace(-pi,pi,20);
+y = tan(x);
+plot(x,y,'g-');
+xlabel angle
+ylabel tangent
+
+% 15.  Use fplot to plot a sine wave on the interval [ 0, 2*pi ] with
+% a red line.
+fplot( @sin, [ 0 2*pi ], 'r-' );
+
+% 16.  Use fplot to plot a sine wave on the interval [0,2*pi], and use
+% handle graphics to set the width of the line to 5 pixels.
+fplot( @sin, [ 0 2*pi ], 'r-' );
+h = get(gca,'Children');
+set(h,'LineWidth',3);
+
+% 17.  Use fplot to plot a sine wave on the interval [0,2*pi], and use
+% 'print' to save the figure to an .eps file called sine.eps.
+fplot( @sin, [ 0 2*pi ], 'r-' );
+print -depsc sine.eps
+
+% 18.  Use fminsearch to find the values of x and y that minimize
+% the function (x-3)^2 + (y-2)^2
+errfn = @( p ) (p(1)-3)^2 + (p(2)-2)^2;
+phat = fminsearch( errfn, [ 0 0 ] )
+
+% 19.  Use fminsearch to find the number that has the minimum sum of
+% squared distances to the numbers 1, 5, 10, and 20.
+data = [ 1 5 10 20 ];
+errfn = @( x ) sum( ( x - data ).^2 );
+xhat = fminsearch( errfn, 0 )
