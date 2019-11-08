@@ -173,3 +173,12 @@ phat = fminsearch( errfn, [ 0 0 ] )
 data = [ 1 5 10 20 ];
 errfn = @( x ) sum( ( x - data ).^2 );
 xhat = fminsearch( errfn, 0 )
+
+% 20.  Write a function that takes a single argument and uses a global
+% variable to store the sum of all the arguments ever passed to it.  The
+% function also returns the current value of the global variable.
+% solution:  see addit.m
+
+% 21.  Write an inline function that implements the gamma function used in
+% monitor calibration.
+gammafn = @( x, p ) p(1)*power( ((max(min(x,255),p(2))-p(2)))/(255-p(2)), p(3) ) + p(4);
