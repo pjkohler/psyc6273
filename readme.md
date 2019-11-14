@@ -3,8 +3,6 @@
 
 ### Upcoming events
 
-**October 31.**  Test 4
-
 **November 14.**  Test 5
 
 **November 28.**  Test 6
