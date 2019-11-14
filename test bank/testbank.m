@@ -153,7 +153,7 @@ ylabel tangent
 fplot( @sin, [ 0 2*pi ], 'r-' );
 
 % 16.  Use fplot to plot a sine wave on the interval [0,2*pi], and use
-% handle graphics to set the width of the line to 5 pixels.
+% handle graphics to set the width of the line to 3 pixels.
 fplot( @sin, [ 0 2*pi ], 'r-' );
 h = get(gca,'Children');
 set(h,'LineWidth',3);
