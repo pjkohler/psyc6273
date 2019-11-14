@@ -1,0 +1,1 @@
+function sec = frame2sec( frame )% FRAME2SEC  Convert frames to seconds%% sec = frame2sec( frame )% get calibration dataglobal CAL% convertsec=frame/CAL.framerate;return

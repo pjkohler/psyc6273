@@ -1,0 +1,1 @@
+function pixel = deg2pixel( deg )% DEG2PIXEL  Convert degrees of visual angle to pixels%% pixel = deg2pixel( deg )% get calibration dataglobal CAL% find size of a pixel in degreesonepix = atand(CAL.pixelsize/CAL.viewdist);% convertpixel = round( deg/onepix );return
