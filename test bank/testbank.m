@@ -182,3 +182,15 @@ xhat = fminsearch( errfn, 0 )
 % 21.  Write an inline function that implements the gamma function used in
 % monitor calibration.
 gammafn = @( x, p ) p(1)*power( ((max(min(x,255),p(2))-p(2)))/(255-p(2)), p(3) ) + p(4);
+
+% testbank.m
+
+% 22.  Define x as a 2 x 2 cell array that contains an integer, a string,
+% and two matrices.  Make a equal to a cell array that is the top row of x.
+x = { 1 'this' ; [ 1 2 3 4 ] [ 1 2 ; 3 4 ] };
+a = x(1,:);
+
+% 23.  Make matrices x and y that are 128 x 128 coordinate matrices.
+dim = 128;
+xylist = (1:dim) - (floor(dim/2)+1);
+[ x, y ] = meshgrid( xylist, -xylist );
