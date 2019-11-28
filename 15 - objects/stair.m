@@ -1,4 +1,13 @@
 classdef stair < handle
+
+    % STAIR  Up-down transformed response (UDTR) staircase class
+    % 
+    % methods:
+    % 
+    %   obj = stair( stim, updown )     constructor
+    %     s = stim                      get current stimulus level
+    %         resp( correctflag )       report correct or incorrect response
+    %         reset                     reset number of correct and incorrect trials to zero
     
     properties
         
@@ -24,17 +33,14 @@ classdef stair < handle
             % initialize stimulus level
             obj.stimi = round( numel( obj.stimlist ) / 2 );
             
-            % initialize number of correct and incorrect responses
-            obj.correctk = 0;
-            obj.incorrectk = 0;
+            % initialize number of correct and incorrect responses to zero
+            obj.reset;
             
         end
         
         % get current stimulus level
         function s = stim( obj )
-            
             s = obj.stimlist( obj.stimi );
-            
         end
         
         % update staircase with result of a trial
@@ -54,9 +60,8 @@ classdef stair < handle
                 % stimulus list
                 obj.stimi = min( obj.stimi+1, numel( obj.stimlist ) );
                 
-                % reset number of correct and incorrect trials
-                obj.correctk = 0;
-                obj.incorrectk = 0;
+                % reset number of correct and incorrect trials to zero
+                obj.reset;
                 
                 return
                 
@@ -69,14 +74,19 @@ classdef stair < handle
                 % stimulus list
                 obj.stimi = max( obj.stimi-1, 1 );
                 
-                % reset number of correct and incorrect trials
-                obj.correctk = 0;
-                obj.incorrectk = 0;
+                % reset number of correct and incorrect trials to zero
+                obj.reset;
                 
                 return
                 
             end
             
+        end
+
+        % set number of correct and incorrect trials to zero
+        function reset( obj )
+            obj.correctk = 0;
+            obj.incorrectk = 0;
         end
         
     end
