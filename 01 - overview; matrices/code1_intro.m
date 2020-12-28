@@ -1,5 +1,6 @@
 %% code1_intro.m  Basics of MATLAB programming
 
+% orient students to the Matlab interface
 
 %% working directory
 
@@ -16,7 +17,7 @@ cd /Users/rfm/Desktop  % move to new working directory
 cd ..                  % move up one directory
 cd Desktop             % move down one directory
 
-pathtool  % show and edit MATLAB path
+% these commands do the same thing on the command line terminal
 
 % to run code from an m file ...
 % - copy and paste lines into command window (awkward)
@@ -24,13 +25,22 @@ pathtool  % show and edit MATLAB path
 % - press F5 to run whole file (usually not useful with these demo files)
 % - can also customize keyboard shortcuts in MATLAB preferences
 
+%% the path
+% determines what functions are available to the user
+
+pathtool  % show and edit MATLAB path
+
+% alternative way of adding code to path
+
+code_path = '/Users/kohler/Desktop/test';
+addpath(genpath(code_path))
 
 %% variables and expressions
 
 % assigning values to variables
 x = 4
-x = 4;
-x=4  % spacing is not important
+x = 4; % semi-colon stops matlab from printing the result to the command line
+x=4  % spacing is not important, but can help with readability
 
 clc  % clear command window; doesn't affect variables (can also use cmd-k)
 % use up arrow to revisit previous commands
@@ -60,6 +70,8 @@ x = x - 1
 % scientific notation:  2.4000e+04 means 2.4 x 10^4
 % order of operations:  ( ) ^ { * / } { + - }, otherwise leftmost first
 format bank  % other formats:  long, short; default is short
+% how to convert to bank format:
+bank_str = cur2str(102, 2)
 
 % evaluating expressions
 5 + 5  % result stored in variable 'ans'
@@ -86,7 +98,6 @@ lookfor cosine    % look for help text with a keyword
 % quitting matlab
 quit  % or command-Q
 
-
 %% random numbers
 
 % random number generators
@@ -102,7 +113,6 @@ randn
 % uniform discrete distribution
 randi(10)
 10 + randi(10)
-
 
 %% exercises
 
