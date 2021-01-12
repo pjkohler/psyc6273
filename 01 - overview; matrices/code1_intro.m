@@ -13,7 +13,7 @@ pwd     % show present working directory
 
 ls      % show contents of working directory
 
-cd /Users/rfm/Desktop  % move to new working directory
+cd /Users/kohler/Desktop  % move to new working directory
 cd ..                  % move up one directory
 cd Desktop             % move down one directory
 
@@ -76,8 +76,7 @@ bank_str = cur2str(102, 2)
 
 % evaluating expressions
 5 + 5  % result stored in variable 'ans'
-x + 1  % value of x does not change
-
+x + 1  % value of x does not change 
 
 %% functions
 

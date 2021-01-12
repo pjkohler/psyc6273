@@ -22,8 +22,8 @@ a = rand( 3, 3, 2 )        % three dimensional matrix
 
 a = [ 4 8 9 ];
 b = [ 2 3 ];
-c = [ a b ]   % combine matrices to form a new matrix
-
+c = [ a b ]    % combine matrices to form a new matrix
+c = cat(2, a, b) % does the same thing
 
 %% mathematical operations on matrices
 
