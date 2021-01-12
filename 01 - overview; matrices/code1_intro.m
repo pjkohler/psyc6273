@@ -60,6 +60,7 @@ clear           % clear all variables
 clear x x1 cos  % clear specific variables
 who             % list variables
 whos            % list variables with information about type, size, etc.
+class           % get type of variable (double, integer, string)
 
 % using expressions
 x = 5
@@ -97,6 +98,10 @@ lookfor cosine    % look for help text with a keyword
 
 % quitting matlab
 quit  % or command-Q
+
+% tab completion: if you press the first few letters of a function or
+%                 matlab will show you a list of options
+%                 or simply complete the expression if only one option
 
 %% random numbers
 
