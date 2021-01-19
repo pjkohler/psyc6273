@@ -3,6 +3,7 @@
 
 %% scripts
 
+% scripts are the simplest type of Matlab programs
 % this m-file is a script
 
 % show help text for a script
@@ -37,6 +38,13 @@ u = demofunca( 10, 20 )
 % - functions can have no input arguments
 % - functions don't normally print their return arguments
 
+% debugging:
+dbstop demofuncb 11 % inserts a break point at 
+                    % line 11 of the function demofuncb
+% can also be done using the editor 
+% gives access to local variables inside functions
+% useful to insert a break point immediately 
+% prior to a line that produces an error
 
 %% exercises
 
