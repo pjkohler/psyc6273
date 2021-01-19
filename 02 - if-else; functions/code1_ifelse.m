@@ -80,23 +80,23 @@ if ( a>0.5 && b>0.5 ) || ~( a>0.9 )
 	x = 0;
 end
 
-% use || && ~ for if-elseif-else (also switch and while)
-
-% use |  &  ~ for matrix operations (logical indices); will cover these later
+% use || && ~ only works for scalars, often used for if-elseif-else (also switch and while)
+ 
+% use |  &  ~ works for element-wise and matrix operations, often used for logical indexing; will cover these later
 
 %% switch
 
-ice_cream = 'vanilla';
+ice_cream = 'chocolate';
 
 switch ice_cream
     case 'chocolate'
-        disp('bad')
+        fprintf('\n%s tastes bad\n', ice_cream)
     case 'vanilla'
-        disp('good')
+        fprintf('\n%s tastes good\n', ice_cream)
     case 'strawberry'
-        disp('great')
+        fprintf('\n%s tastes great\n', ice_cream)
     otherwise
-        disp('hm ... not sure?')
+        fprintf('\nhm ... not so sure about %s \n', ice_cream)
 end
 
 
