@@ -19,7 +19,6 @@ lookfor demonstration
     can continue for several lines
 %}
 
-
 %% functions
 
 % see demofunca.m, demofuncb.m

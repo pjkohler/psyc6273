@@ -25,6 +25,10 @@ fprintf('%d', num) % first argument (%d) specifies formatting
 
 %% if-elseif-else
 
+% if clause
+%   action
+% end
+
 % if statement
 if num < 0
 	x = 0;
@@ -47,7 +51,7 @@ elseif num == 0  % use == to test for equality (not =)
 elseif num <= 10
     x = 1;
 else
-    x = 2;
+    error('num not in desired range')
 end
 
 % note that any non-zero statement evaluates to logical true
@@ -78,6 +82,8 @@ a = rand;
 b = rand;
 if ( a>0.5 && b>0.5 ) || ~( a>0.9 )
 	x = 0;
+else
+    x = 1;
 end
 
 % use || && ~ only works for scalars, often used for if-elseif-else (also switch and while)
