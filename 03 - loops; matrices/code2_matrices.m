@@ -7,8 +7,11 @@ a = nan( 3, 5 )            % not a number
 a = inf( 3, 5 )            % infinite value
 
 a = [ 10 20 30
-40 50 60 ]
-
+40 50 60 ];
+% same as 
+a = [ 10 20 30; 40 50 60 ]
+% not clear to me what RM is trying to show here
+% not sure you'd ever do the latter
 
 %% more mathematical operations on matrices
 
@@ -23,6 +26,7 @@ min( a, [], 2 )   % minimum over columns
 
 min( min( a ) )   % minimum of a whole m x n matrix
 min( a(:) )       % minimum of a whole matrix
+                  % this is because a(:) unwraps a into a column vector
 
 max( a )          % maximum over rows
 max( a, [], 1 )   % maximum over rows
@@ -57,7 +61,7 @@ a( 3 ) = []           % delete an element
 a( 1:3 ) = []         % delete several elements
 
 
-%% logical indices
+%% logical indexing
 
 a = rand( 3 );
 
@@ -68,6 +72,8 @@ k = sum( b(:) )        % count the elements that meet the criterion
 k = sum( a(:) > 0.5 )  % same thing, more concisely
                 
 c = a( b )           % get the elements that meet the criterion
+
+c = a( 3, (a( 3,: ) > 0.5) ) % do the same thing, but for individual rows/columns
 
 a( b ) = 0           % set the elements that meet the criterion to some value
 a( a > 0.5 ) = 0     % same thing, more concisely
@@ -88,9 +94,9 @@ g = ( a>0.1 & a<0.2 ) | ~( a<0.95 )
 % logical indices must be type 'logical'
 
 
-%% linear indices
+%% linear indexing
 
-% column major order
+% order is by column, then row
 
 a = rand(5);
 b = a(1)            % get an element using linear indices

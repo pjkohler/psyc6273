@@ -2,6 +2,7 @@
 
 
 %% for loop
+% counted loop,repeats statements a specified number of times
 
 % for loop that doesn't use the loop variable
 for i = 1:5
@@ -59,7 +60,7 @@ for i = 1:n
     end
     
 end
-% better:  initialize p
+% better:  initialize p ahead of time
 
 % breaking out of a loop; find first prime between m and n
 m = 300;
@@ -86,6 +87,7 @@ end
 
 
 %% while loop
+% conditional loop: will loop until a condition is met
 
 % find the first factorial greater than some number
 m = 2000;
