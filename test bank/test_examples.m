@@ -53,3 +53,19 @@
 % than zero.
 
 % 4p.  Use find() to set the elements of m that are less than zero to NaN.
+
+% 5.  Write code that will set the variable s to -1 if x is less than zero,
+% set s to 0 if x is equal to zero, and set s to 1 if x is greater than
+% zero.  The value NaN does not meet any of these conditions, so if x does
+% not meet any of the above conditions, then set s to NaN.
+
+% 6.  Write a function that takes two input arguments, and returns the sum
+% of their absolute values.
+
+% 7.  Write a function called testit.m that takes two arguments, and
+% returns -1 if the first argument is greater, 0 if they are equal, and 1
+% if the second argument is greater.
+
+% 8.  Write a for loop that prints all the prime numbers between 1 and 100.
+
+% 9.  Write a while loop that finds the first prime number greater than 100.
