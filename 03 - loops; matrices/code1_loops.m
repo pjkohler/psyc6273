@@ -35,13 +35,14 @@ for k = 1:100
     
     if isprime(k)
         fprintf('%d\n',k);
+    else
     end
     
 end
 
 % nested for loops
 r = zeros(10,10);
-for i = 1:10
+for i = 1:4
     
     for j = 1:10
         r(i,j) = rand;
@@ -67,7 +68,7 @@ m = 300;
 n = 400;
 p = NaN;
 for i = m:n
-    
+    fprintf('%d\n',i)
     if isprime(i)
         p = i;
         break
@@ -84,7 +85,6 @@ for i = 1:100
     fprintf('%d\n',i);
     
 end
-
 
 %% while loop
 % conditional loop: will loop until a condition is met
@@ -115,8 +115,9 @@ v = 3 * v;
 
 % version 1
 runprod = 1;
-for i = 1:n
-    runprod = runprod * i;
+n = 20;
+for k = 1:n
+    runprod = runprod * k;
 end
 
 % version 2 (easier to read and maintain, often faster)
