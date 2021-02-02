@@ -60,9 +60,11 @@ while 1
     end
     
     % calculate the current radius
+    % based on mouse y position
     radius2iP = radius2imaxP - (radius2imaxP-radius2iminP)*(y/winRect(4));
     
     % draw the unvarying part of stimulus
+    % by copying from the off window
     Screen('CopyWindow',offID,winID,winRect,winRect);
     
     % draw the adjustable circle
