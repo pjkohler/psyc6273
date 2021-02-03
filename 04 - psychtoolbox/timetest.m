@@ -4,7 +4,7 @@
 clear; clc;
 
 % choose method of drawing image to screen
-putimage = 1;
+putimage = 0;
 
 % set psychtoolbox preferences
 Screen('Preference', 'SkipSyncTests', 2 );

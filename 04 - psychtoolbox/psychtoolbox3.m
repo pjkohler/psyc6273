@@ -14,19 +14,11 @@ Screen('Preference', 'SkipSyncTests', 2 );
 Screen('Preference', 'SuppressAllWarnings', 1 );
 
 scr_no = 0; % screen number variable
+% open a window
+Screen('OpenWindow', scr_no, 128 ); sca;
 
 % sca or Screen('CloseAll')
 % close all open screens
-
-% open a window
-Screen('OpenWindow', scr_no, 128 ); sca;
-% open a window that does not fill the whole screen (useful for debugging)
-
-% w_pt: window pointer that can be used to refer to the Screen later
-
-% rect: coordinates of the windows we just opened [left,top,right,bottom]
-%       can be used to get the window size
-%       and to easily place an object in the center of the screen
 
 % get screen size in pixels
 [size_pix(1), size_pix(2)] = Screen('WindowSize', scr_no);
@@ -35,7 +27,14 @@ Screen('OpenWindow', scr_no, 128 ); sca;
 
 % we define a rect to indicate where we can the screen
 upper_right = [size_pix(1)/2, 0, size_pix(1), size_pix(2)/2];
+% open a window that does not fill the whole screen (useful for debugging)
 [w_pt, rect] = Screen('OpenWindow', scr_no, [255, 128, 0], upper_right);
+
+% w_pt: window pointer that can be used to refer to the Screen later
+
+% rect: coordinates of the windows we just opened [left,top,right,bottom]
+%       can be used to get the window size
+%       and to easily place an object in the center of the screen
 
 % hide the cursor, so it does not interfere with your experiment
 HideCursor;
@@ -87,7 +86,7 @@ im = round(255*rand(n,n));
 Screen('PutImage',w_pt,im,[ 100 100 100+n 100+n ]);
 Screen('Flip',w_pt);
 KbWait; pause(0.1);
-
+   
 % load an image and show it onscreen
 im = imread('einstein.tif');
 [m,n] = size(im);
@@ -123,7 +122,7 @@ strcmp( b, 'abc' )
 % ismember(b, 'abc') does the same thing, but more general, e.g.
 c = ismember([1 2 3 0 9], [2, 4])
 any( strcmp( b, 'abc' ) )
-
+%% 
 % open main window
 [w_pt, rect] = Screen('OpenWindow', 0, 128, upper_right );
 
@@ -134,7 +133,7 @@ ListenChar(2);
 while 1
 
     % get the keycode
-    [downflag,presstime,keycode] = KbCheck; key = KbName(keycode);
+    [downflag,presstime,keycode] = KbCheck;
     
     % get the key name
     key = KbName(keycode);
@@ -186,20 +185,19 @@ Screen('PutImage',off_pt1,im1,[ 0 0 n n ]);
 Screen('PutImage',off_pt2,im2,[ 0 0 n n ]);
 Screen('PutImage',off_pt3,im3,[ 0 0 n n ]);
 
-% get the current time
-t = GetSecs;
-
 % get the rect for the image location
 % by centering the image rect inside the screen rect
 center_rect = CenterRect([ 0 0 n n ],rect);
 
+% get the current time
+t = GetSecs;
 % show the noise images (fast)
 Screen('CopyWindow',off_pt1,w_pt,[ 0 0 n n ],center_rect);
-Screen('Flip',w_pt,t+1);
+t_stamp(1) = Screen('Flip',w_pt,t+1);
 Screen('CopyWindow',off_pt2,w_pt,[ 0 0 n n ],center_rect);
-Screen('Flip',w_pt,t+2);
+t_stamp(2) = Screen('Flip',w_pt,t+2);
 Screen('CopyWindow',off_pt3,w_pt,[ 0 0 n n ],center_rect);
-Screen('Flip',w_pt,t+3);
+t_stamp(3) = Screen('Flip',w_pt,t+3);
 pause(1);
 
 Screen('Close',w_pt);
