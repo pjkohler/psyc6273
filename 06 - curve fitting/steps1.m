@@ -40,7 +40,7 @@ sum( ( fitfn( dx, a, b, c ) - dy ).^2 )
 % into a function of a variable p (which is a 1 x 3 matrix)
 errfn = @( p ) sum( ( fitfn( dx, p(1), p(2), p(3) ) - dy ).^2 )
 
-% get fminsearch to find the value of p that minimizes the negative log likelihood
+% get fminsearch to find the value of p that minimizes the error
 phat = fminsearch( errfn, [ 0 0 0 ] )
 
 % these are the minimum sum-of-squares estimates for a, b, and c.  done!

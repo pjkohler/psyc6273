@@ -47,6 +47,12 @@ ShowCursor;
 
 %%  part 2 -- fit a gamma function to the calibration data
 
+% gamma function (gammafn.m) looks like this:
+% lum = k * ( (g-g0)/(255-g0) )^gamma + delta
+% 4 free parameters: k, g0, gamma, delta
+% same as Eq. 16 in Brainard (2002) but with k and delta parameters added
+% to control minimum and maximum luminance
+
 % make the error function
 errfn = @( p ) sum( ( lum - gammafn(greylist,p) ).^2 );
 
@@ -61,12 +67,13 @@ axis([ -1 256 0 1.1*max(lum) ]);
 xlabel 'greylevel'
 ylabel 'luminance'
 legend('gamma fit','measurements','Location','NorthWest');
+fprintf(1,'lum = k * ( (g-g0)/(255-g0) )^gamma + delta\n');
 fprintf(1,'k = %.2f\ng0 = %.2f\ngamma = %.2f\ndelta = %.2f\n',phat);
 
 % save calibration data
 CAL.gamma = phat;
-CAL.pixelsize = 0.0003;
-CAL.framerate = 60;
+CAL.pixelsize = 0.0003; % pixel size in meters
+CAL.framerate = 60; % frame rate in Hz
 save caldata.mat CAL
 
 
@@ -76,14 +83,14 @@ save caldata.mat CAL
 load caldata.mat CAL
 
 % set viewing distance
-viewdistM = 0.57;
+viewdist = 0.57; % in meters
 
 % convert seconds to frames
 stimdurS = 0.5;
 stimdurF = stimdurS * CAL.framerate
 
 % convert degrees to pixels
-degperpixel = atand( CAL.pixelsize / viewdistM );
+degperpixel = atand( CAL.pixelsize / viewdist );
 pixelperdeg = 1/degperpixel;
 stimsizeD = 2.5;
 stimsizeP = stimsizeD * pixelperdeg
@@ -92,8 +99,8 @@ stimsizeP = stimsizeD * pixelperdeg
 lummat = 50 + 25*rand(128,128);
 
 % check luminance range
-minlum = CAL.gamma(4);
-maxlum = CAL.gamma(1)+CAL.gamma(4);
+minlum = CAL.gamma(4);  % the inner part cannot evalute to < 0
+maxlum = CAL.gamma(1)+CAL.gamma(4); % the inner part cannot evalute to > 1
 toolow =  (lummat<minlum);
 toohigh = (lummat>maxlum);
 if any( toolow(:) ) || any( toohigh(:) )
@@ -102,8 +109,10 @@ if any( toolow(:) ) || any( toohigh(:) )
     lummat(toohigh) = maxlum;
 end
 
-% convert
-igammafn = @( lum ) (255-CAL.gamma(2))*power( (lum-CAL.gamma(4))/CAL.gamma(1), 1/CAL.gamma(3) ) + CAL.gamma(2);
+% convert with inverse gamma
+% Equation 17 in Brainard (2002), but with delta and k added: 
+% G = (255 ? g0) * ((g-delta)/k)^(1/gamma) + g0.
+igammafn = @( lum ) (255 - CAL.gamma(2)) * power( (lum-CAL.gamma(4))/CAL.gamma(1), 1/CAL.gamma(3) ) + CAL.gamma(2);
 rgbmat = igammafn( lummat );
 rgbmat = round( rgbmat );
 rgbmat = repmat(rgbmat,[ 1 1 3 ]);

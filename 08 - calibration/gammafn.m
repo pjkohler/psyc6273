@@ -6,9 +6,9 @@ function lum = gammafn( g, p )
 
 % get gamma function parameters
 k = p(1);
-g0 = p(2);
-gamexp = p(3);
-delta = p(4);
+g0 = p(2); % lowest possible value
+gamexp = p(3); % gamma exponent
+delta = p(4); 
 
 % initialize luminances
 lum = NaN(size(g));

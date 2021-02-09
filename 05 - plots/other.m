@@ -86,6 +86,8 @@ end
 %% debugging
 
 % keyboard, dbstep, dbcont, dbquit
+% dbstop if error 
+%   is very useful
 % - can also set breakpoints in the editor
 
 % echo on/off

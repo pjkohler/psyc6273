@@ -11,9 +11,9 @@
 myfn = @( x ) x.^2;
 myfn( 1 )
 myfn( 2 )
-fplot( myfn, [ -1 1 ] );
+fplot( myfn, [ -1 1 ] ); % fplot plots the function between [-1 1]
 
-% a function of two variables
+% a function with more than one variable
 myfn = @( x, y ) x + y.^2;
 myfn( 2, 3 )
 
@@ -23,19 +23,18 @@ myfn([ 2 3 ])
 % in a way, this is the same as the function of two variables.
 % it just expects its arguments in a 1 x 2 vector
 
-
 %% fminsearch in 1D
-
 % make an inline function to minimize
 minfn = @( x ) x.^2;
 
 % find the input value that minimizes it
-xhat = fminsearch( minfn, 1 )
+init_val = 1; % initial value
+xhat = fminsearch( minfn, init_val );
 
 % show results
 fplot( minfn, [ -1 1 ] );
 hold on;
-plot(xhat,minfn(xhat),'ro');
+plot(xhat, minfn(xhat),'ro');
 hold off;
 
 % if minfn.m is an M-file, do this instead (note the @):
@@ -46,7 +45,6 @@ hold off;
 % - to refer to an inline function, use the function name
 % - to refer to a function defined in an M-file, use @ followed by
 %   the function name, i.e., the M-file name
-
 
 %% fminsearch in 2D
 
@@ -64,7 +62,7 @@ phat = fminsearch( minfn, [ 0 0 ] )
 
 % make some data to fit
 dx = linspace(-pi,pi,20);
-dy = 1 + 0.5*sin(dx) + 0.2*randn(size(dx));
+dy = 1 + 0.5*sin(dx) + 0.2*randn(size(dx)); % sine wave + random noise
 
 % make the fitting function
 fitfn = @( x, a, b, c ) a + b*sin( x - c );
@@ -87,7 +85,7 @@ fplot(@(x)fitfn(x,phat(1),phat(2),phat(3)),[ -pi pi ]);
 axis([ -pi pi -2 2 ]);
 
 
-%% improving the fit by making several tries with different inital guesses
+%% improving the fit by making several tries with different initial guesses
 
 % make some data to fit
 dx = linspace(-pi,pi,20);
@@ -134,13 +132,13 @@ axis([ -pi pi -2 2 ]);
 d = 10 + 2*randn(1,50);
 
 % make the error function
-% errfn = @( p ) -prod( normpdf( d, p(1), p(2) ) );
 errfn = @( p ) -sum(log( normpdf( d, p(1), p(2) ) ));
 % note:  normpdf( x, mu, sigma ) is the probability density of a getting
 %        a sample with value x from a normal distribution with mean mu
 %        and standard deviation sigma
+%        we use negative log to avoid issues with very small likelihoods
 
-% minimize the error function
+% use fminsearch to minimize the negative log likelihood
 phat = fminsearch( errfn, [ 0 1 ] );
 
 % report results of fit
@@ -162,7 +160,8 @@ fitfn = @( x, p ) 0.5 + 0.5*normcdf( x, p(1), p(2) );
 
 % make the error function (negative log likelihood)
 % (see steps2.m for a step-by-step construction of this function)
-% note:  binopdf( x, n, p ) is the probability of having x successes
+% note:  binopdf( x, n, p ) is the Binomial probability density function,
+%        the probability of having x successes
 %        on n trials, when the probability of each success is p
 errfn = @(p) -sum( log( binopdf( ncorrect, ntrials, fitfn(stimlev,p) ) ) );
 
@@ -179,5 +178,6 @@ plot(stimlev,ncorrect./ntrials,'ro');
 hold on;
 fplot( @(x) fitfn(x,phat), [ 0 0.55 ] );
 axis([ 0 0.55 0 1.1 ]);
+xlim([0,.55]); ylim([0,1.25]);  
 xlabel 'stimulus contrast'
 ylabel 'proportion correct'

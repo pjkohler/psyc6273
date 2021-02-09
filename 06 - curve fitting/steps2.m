@@ -45,7 +45,7 @@ prod( binopdf( ncorrect, ntrials, fitfn( stimlev, mu, sigma ) ) )
 nllike = @( p ) -sum(log( binopdf( ncorrect, ntrials, fitfn( stimlev, p(1), p(2) ) ) ));
 
 % get fminsearch to find the value of p that minimizes the negative log likelihood
-phat = fminsearch( nllike, [ 0.20 0.20 ] );
+phat = fminsearch( nllike, [ 0.10 0.20 ] );
 
 % these are the maxium likelihood estimates of mu and sigma.  done!
 muhat = phat(1)
