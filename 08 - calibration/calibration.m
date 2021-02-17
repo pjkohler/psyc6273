@@ -29,7 +29,6 @@ lum = NaN(size(greylist));
 
 % measure luminance at each greylevel
 for i = 1:numel(greylist)
-    
     % show a patch of this greylevel on the screen
     Screen('FillRect',winID,128,winRect);
     Screen('FillRect',winID,greylist(i),drawRect);
@@ -111,7 +110,7 @@ end
 
 % convert with inverse gamma
 % Equation 17 in Brainard (2002), but with delta and k added: 
-% G = (255 ? g0) * ((g-delta)/k)^(1/gamma) + g0.
+% G = (255 - g0) * ((g-delta)/k)^(1/gamma) + g0.
 igammafn = @( lum ) (255 - CAL.gamma(2)) * power( (lum-CAL.gamma(4))/CAL.gamma(1), 1/CAL.gamma(3) ) + CAL.gamma(2);
 rgbmat = igammafn( lummat );
 rgbmat = round( rgbmat );

@@ -69,3 +69,14 @@
 % 8.  Write a for loop that prints all the prime numbers between 1 and 100.
 
 % 9.  Write a while loop that finds the first prime number greater than 100.
+
+% 10.  Write Psychtoolbox code that will open a grey window to cover
+% the whole screen.
+
+% 11.  Write Psychtoolbox code that nulls the colour lookup table.
+
+% 12.  Set a = 3.14 and b = 'abc'.  Use fprintf() to print the following
+% message:  The value of a is 3.1400 and the value of b is 'abc'.
+
+% 13.  Use fprintf() to write the prime numbers between 1 and 100 to a text
+% file called prime.txt
