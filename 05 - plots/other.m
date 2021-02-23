@@ -1,5 +1,14 @@
 %% other.m  A few loose ends
 
+%% debugging
+
+% keyboard, dbstep, dbcont, dbquit
+% dbstop if error 
+%   is very useful
+% - can also set breakpoints in the editor
+
+% echo on/off
+
 %% input and output
 
 % get a number from user's input
@@ -23,7 +32,6 @@ fprintf('the value of a is %f.  the value of b is %s\n',a,b);
 % vectorized fprintf
 a = rand(1,3);
 fprintf('the random numbers are %.2f, %.2f, and %.2f\n',a);
-
 
 %% write some text to a file
 
@@ -82,18 +90,9 @@ switch quiz
 		grade = 4;
 end
 
-
-%% debugging
-
-% keyboard, dbstep, dbcont, dbquit
-% dbstop if error 
-%   is very useful
-% - can also set breakpoints in the editor
-
-% echo on/off
-
-
 %% warnings and errors
+% can be inserted into scripts and functions to tell your user 
+% (or yourself) about potential problems or errors
 
 warning('the file exists but it is empty');
 
