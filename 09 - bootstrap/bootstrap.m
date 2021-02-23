@@ -7,11 +7,13 @@
 mu = 10;
 sigma = 5;
 nsamp = 100;
-samp = normrnd(mu,sigma,[ nsamp 1 ]);
+samp = normrnd(mu,sigma,[ nsamp 1 ]); % returns array of random numbers 
+                                      % from a normal distribution with 
+                                      % mean mu and std sigma
 
 % find the mean and standard deviation of the data
 muhat = mean(samp);
-sigmahat = std(samp);
+sigmahat = std(samp); % note: not identical to the population mean and std
 
 % bootstrap the mean of the data
 for b = 1:200
@@ -84,6 +86,7 @@ ntrials =  [   20   20   20   20   20   20   20   20   20   20 ];
 ncorrect = [   10   11   10   12   14   15   14   18   19   20 ];
 
 % make the fitting function
+% normcdf is the normal cumulative distribution function
 fitfn = @( x, p ) 0.5 + 0.5*normcdf( x, p(1), p(2) );
 
 % initialize list of bootstrapped thresholds
@@ -97,10 +100,14 @@ for t = 1:B+1
     if t==1
         ncorrectstar = ncorrect;
     else
+        % draw a set of samples using the binomial distribution
+        % binornd(n trials, probality of success on each trials): 
         ncorrectstar = binornd( ntrials, ncorrect./ntrials );
     end
 
-    % minimize error
+    % use fminsearch to fit the psychometric function (see curvefit code):
+    % binopdf (x, n, p) gives us the probability of having x successes
+    % on n trials, when the probability of each success is p
     errfn = @(p) -sum( log( binopdf( ncorrectstar, ntrials, fitfn(stimlev,p) )));
     phat = fminsearch( errfn, [ 0.1 0.1 ]);
     thresh(t) = phat(1);

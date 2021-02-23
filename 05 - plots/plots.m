@@ -8,7 +8,7 @@ y = sind( x );
 plot( x, y, 'ro-' );  % see 'help plot' for variants of 'ro-'
 
 % color can also be specified directly
-plot( x, y, 'o-' , 'color', [1 .2 0] ); % a more orangy red, perhaps cooler?
+plot( x, y, 'o-' , 'color', [1 .2 0]); % a more orangy red, perhaps cooler?
 
 xlabel 'theta'
 ylabel 'sin(theta)'
@@ -26,7 +26,7 @@ close all; % close all figures
 help graph2d
 help graph3d
 
-% see also:  hist, bar, errorbar, loglog
+% see also:  hist / histogram, bar, errorbar, loglog
 
 %% multiple plots on a single set of axes
 
@@ -36,22 +36,23 @@ plot( x, y, 'ro-' );
 
 % hold on means that old figure content is retained when new content is added
 hold on; 
-plot( x, 0.5*y, 'b-' );
-plot( x, 0.4*y, 'go' );
+p_h(1) = plot( x, 0.5*y, 'b-' );
+p_h(2) = plot( x, 0.4*y, 'go' );
 hold off;
 
 axis([ -pi pi -1.1 1.1 ]);
 xlabel 'abscissa'
 ylabel 'ordinate'
 title 'a sampled sine wave'
-legend('sine wave 1','sine wave 2','Location','NorthWest');
+legend('sine wave 1', 'sine wave 2','Location','NorthWest');
+% legend(p_h, 'sine wave 1', 'sine wave 2','Location','NorthWest');
 zoom on;
 
 %% plots, axes and graphic objects have handles
 
 x = linspace(-pi,pi,10);
 y = sin( x );
-h = plot( x, y, 'ro-' ); % returns the handle to the line
+h = plot( x, y, 'ro-'); % returns the handle to the line
 
 set( h, 'LineWidth', 3, 'MarkerSize', 10, 'MarkerEdgeColor', 'g', ...
     'MarkerFaceColor', 'g' );  % set some line properties
@@ -67,7 +68,7 @@ set(fig_h, 'units', 'centimeters');
 fig_pos = get(gcf,'pos'); % specified as [upper-left-x, upper-left-y, width, height]
 fig_pos(3) = 15;
 fig_pos(4) = 10;
-set(gcf,'pos',fig_pos);
+set(gcf,'position',fig_pos);
 
 % get the handle of the current axis (gca = GET CURRENT AXIS)
 ax_h = gca;
@@ -102,7 +103,7 @@ set(gcf,'pos',fig_pos);
 
 for f = 1:4
     subplot(2,2,f); % specify the subplot
-    % plot and image from a matrix
+    % plot an image from a matrix
     % the colors are scaled to use the full colormap
     imagesc(rand(10,10)*255); 
     if f > 2
@@ -111,11 +112,11 @@ for f = 1:4
         colormap(gca, 'jet');
     end
     if mod(f,2)==0
-        % cb = colorbar('EastOutside');
+        cb = colorbar('EastOutside');
         % we have to reposition the color bar
-        % cb_pos = get(cb,'position');
-        % cb_pos(1) = cb_pos(1) + cb_pos(3)*3; 
-        % set(cb, 'position', cb_pos, 'ytick',0:50:250, 'ylim',[0,255]);
+        cb_pos = get(cb,'position');
+        cb_pos(1) = cb_pos(1) + cb_pos(3)*3; 
+        set(cb, 'position', cb_pos, 'ytick',0:50:250, 'ylim',[0,255]);
     else
     end
     axis square;
@@ -128,7 +129,10 @@ end
 % plotting an m-file function
 subplot(1,2,1);
 
+hold on 
 fplot( @sin, [ -pi pi ] );
+fplot( @cos, [ -pi pi ] );
+hold off
 
 h = get( gca, 'Children' );
 set( h, 'LineWidth', 3 );

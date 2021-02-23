@@ -19,6 +19,7 @@ r = input('prompt:  ','s');
 
 % show the value of a variable
 r = rand;
+
 disp(r)
 
 % fprintf
@@ -94,6 +95,14 @@ end
 % can be inserted into scripts and functions to tell your user 
 % (or yourself) about potential problems or errors
 
-warning('the file exists but it is empty');
+warning('subject %s: the file exists but it is empty, so new data file written', cur_sub);
 
-error('unable to open the file');
+if size(trials,1) < 240
+    error('subject %s: too few trials!', cur_sub)
+else
+end
+
+if size(trials,2) < 10
+    error('subject %s: too few parameters - file corrupted?',cur_sub)
+else
+end
