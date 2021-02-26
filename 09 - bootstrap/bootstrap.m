@@ -103,6 +103,8 @@ for t = 1:B+1
         % draw a set of samples using the binomial distribution
         % binornd(n trials, probality of success on each trials): 
         ncorrectstar = binornd( ntrials, ncorrect./ntrials );
+        % this is also parametric, because we are resampling based on the
+        % expected distribution of samples
     end
 
     % use fminsearch to fit the psychometric function (see curvefit code):
