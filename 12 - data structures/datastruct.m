@@ -86,13 +86,16 @@ sine2 = assign_cart(sine2);
 % this is object-oriented programming!
 
 %% tables
-% very good way of viewing information
+% very good way of inspecting / viewing data information
 
 % generate table manually
 sine_table = table([sine.wavelength]', [sine.amplitude]', [sine.phase]', 'VariableNames', {'wavelength', 'amplitude', 'phase'});
 
 % however, tables can also be generated directly from structs
-sine_table2 = struct2table(sine)
+sine_table2 = struct2table(sine);
+
+% and tables can be written directly to csv files
+writetable(tbl, '~/Desktop/sine_test.csv', 'Delimiter',',','QuoteStrings',true);
 
 % cell2table
 c = { 23 'a' ; 1:2:9 'hello' }
