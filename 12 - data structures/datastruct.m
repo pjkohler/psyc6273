@@ -1,7 +1,7 @@
 %% datastruct.m  Demonstration code for data structures
-
-% data structure = variable that stores more than one value
-
+% data structure = 
+% variable that stores more than one value 
+% and more than one type of value
 
 %% cell arrays
 
@@ -32,6 +32,9 @@ c(2,:) = []     % deletes row 2
 
 
 %% structs
+% very good way of storing information
+
+% two ways of creating a struct:
 
 % creating a struct
 sine1.wavelength = 32;
@@ -74,6 +77,30 @@ sine.amplitude          % returns a comma separated list
 [ sine.amplitude ]      % returns a vector
 sum([ sine.amplitude ])
 
+% use function to populate struct, and return the same struct!
+sine = assign_cart(sine);
+
+% note: works equally way with single structs and arrays of structs
+sine2 = assign_cart(sine2);
+
+% this is object-oriented programming!
+
+%% tables
+% very good way of viewing information
+
+% generate table manually
+sine_table = table([sine.wavelength]', [sine.amplitude]', [sine.phase]', 'VariableNames', {'wavelength', 'amplitude', 'phase'});
+
+% however, tables can also be generated directly from structs
+sine_table2 = struct2table(sine)
+
+% cell2table
+c = { 23 'a' ; 1:2:9 'hello' }
+cell_table = cell2table(c); 
+
+% convert cell to struct:
+cell_struct = cell2struct(c, {'cat1', 'cat2'}, 2);
+% also possible to go the other way: struct2cell
 
 %% exercises
 
