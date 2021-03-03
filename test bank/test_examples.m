@@ -80,3 +80,39 @@
 
 % 13.  Use fprintf() to write the prime numbers between 1 and 100 to a text
 % file called prime.txt
+
+% 14.  Set x equal to 20 samples from -pi to pi.  Set y equal to the tangent
+% of x.  Plot y versus x with a solid green line and no data point markers.
+% Label the axes 'angle' and 'tangent'.
+x = linspace(-pi,pi,20);
+y = tan(x);
+plot(x,y,'g-');
+xlabel angle
+ylabel tangent
+
+% 15.  Use fplot to plot a sine wave on the interval [ 0, 2*pi ] with
+% a red line.
+
+% 16.  Use fplot to plot a sine wave on the interval [0,2*pi], and use
+% handle graphics to set the width of the line to 3 pixels.
+
+% 17.  Use fplot to plot a sine wave on the interval [0,2*pi], and use
+% 'print' to save the figure to an .eps file called sine.eps.
+
+% 18.  Use fminsearch to find the values of x and y that minimize
+% the function (x-3)^2 + (y-2)^2
+
+% 19.  Use fminsearch to find the number that has the minimum sum of
+% squared distances to the numbers 1, 5, 10, and 20.
+
+% 20.  Write a function that takes a single argument and uses a global
+% variable to store the sum of all the arguments ever passed to it.  The
+% function also returns the current value of the global variable.
+
+% 21.  Write an inline function that implements the gamma function used in
+% monitor calibration.
+
+% 22.  Define x as a 2 x 2 cell array that contains an integer, a string,
+% and two matrices.  Make a equal to a cell array that is the top row of x.
+
+% 23.  Make matrices x and y that are 128 x 128 coordinate matrices.
