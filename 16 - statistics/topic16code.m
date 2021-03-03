@@ -11,7 +11,7 @@ fplot( @(x) tpdf(x, 5) , [ -3 3 ]);
 fplot( @(x) tpdf(x, 10) , [ -3 3 ]);
 set(gca, font_params{:})
 % print legend, use '{\it ... }' to do italic script
-legend('normal','{\itt} (df=5)','{\itt} (df=10)', 'box', 'off', font_params{:});
+legend('normal','{\itt-disp} (df=5)','{\itt-disp} (df=10)', 'box', 'off', font_params{:});
 title('t-distribution and normal distribution', font_params{:});
 hold off
 % t-distribution is designed to account 
@@ -21,6 +21,7 @@ hold off
 %% STUDENT'S T-DISTRIBUTION
 figure(2); set(gcf,'Name','student''s t');
 n = 20;
+fig_labels = {'A','B','C','D'};
 for z = 1:4
     subplot(2,2,z); 
     switch z
@@ -33,7 +34,8 @@ for z = 1:4
         case 4
             histogram( trnd(n-1 ,[ 10000 1 ]), 20);  set(gca,'xlim',[-4,4]);  title('rnd', font_params{:});
     end    
-    set(gca, font_params{:})
+    set(gca, font_params{:}, 'box', 'off')
+    text(min(get(gca,'xlim')), max(get(gca,'ylim')), fig_labels{z}, font_params{:}, 'fontsize', 20); 
 end
 
 %% RUN THE T-TEST BY HAND
@@ -64,7 +66,11 @@ plot(plow,t, 'ro')
 %% compare to matlab
 
 % use matlab's ttest function:
-[t_sig, t_p, t_ci, stat] = ttest(x, 10)
+[t_sig, t_p, t_ci, stat] = ttest(x, 10, 'tail', 'both')
+
+stat.sig = t_sig;
+stat.p = t_p;
+stat.ci = t_ci;
 
 % use ttest2 for unpaired two-sample tests, 
 % and ttest for one-sample and paired samples

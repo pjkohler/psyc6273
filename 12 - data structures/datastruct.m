@@ -61,6 +61,7 @@ sine1 = rmfield( sine1, 'amplitude' )  % remove a field
 sine(1).wavelength = 32;
 sine(1).amplitude = 0.5;
 sine(1).phase = 90;
+
 sine(2).wavelength = 16;
 sine(2).amplitude = 0.25;
 sine(2).phase = 0;
@@ -95,7 +96,7 @@ sine_table = table([sine.wavelength]', [sine.amplitude]', [sine.phase]', 'Variab
 sine_table2 = struct2table(sine);
 
 % and tables can be written directly to csv files
-writetable(tbl, '~/Desktop/sine_test.csv', 'Delimiter',',','QuoteStrings',true);
+writetable(sine_table2, '~/Desktop/sine_test.csv', 'Delimiter',',','QuoteStrings',true);
 
 % cell2table
 c = { 23 'a' ; 1:2:9 'hello' }
