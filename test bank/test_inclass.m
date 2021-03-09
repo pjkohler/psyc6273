@@ -115,18 +115,27 @@ end
 
 % 9a. Use the Psychtoolbox function Screen('WindowSize' ...) to get the
 % size of your screen in pixels.
+[size_pix(1), size_pix(2)] = Screen('WindowSize', 0);
 
 % 9b. Use that information and write Psychtoolbox code that will open a RED window that will cover
 % LOWER LEFT corner of the screen. 
+lower_left = [size_pix(1)/2, size_pix(2)/2, size_pix(1), size_pix(2)];
+[w_pt, rect] = Screen('OpenWindow', 0, [255, 0, 0], lower_left);
 
 % 9c. Use the function CenterRect and Screen('FillOval' ...) to place a
 % 100x100 yellow disc in the center of your red window.
+circle_rect = CenterRect([0,0,100,100], rect);
+Screen('FillOval', w_pt, [255 255 0], circle_rect);
 
 % 9d. Use GetSecs to get the system time and Screen('Flip' ...) 
 % to present your yellow disc. Then use FillOval again to draw
 % a blue disc of the same size and position and use Flip again 
 % to replace the yellow disc with the blue after 1 second. 
 % Do not use offscreen windows or textures. 
+t = GetSecs;
+t1 = Screen('Flip',w_pt,t+1);
+Screen('FillOval', w_pt, [0 0 255], circle_rect);
+t2 = Screen('Flip',w_pt,t+2);
 
 % 10. Close all screens and use 
 % fprintf to print the following to the command line: 
@@ -135,3 +144,29 @@ end
 % computed from the output of Screen Flip,
 % converted to milliseconds and displayed using fixed-point notation (%f)
 % with two digits two the right of the decimal point
+sca; 
+delay_ms = (t2-t1) * 1000;
+fprintf("\n the true delay between the two flips was %.2f ms \n", delay_ms)
+
+%% TEST 4 STARTS HERE
+
+% 11. Generate 100 random x and y values by sampling the normal distribution
+% Plot x and y using green circles. 
+% Plot the average of x and y with a red x.  
+
+% 12.  Use fplot to plot cosine and sine of the 
+% interval [ -pi, pi ] in red and blue,
+% using a solid line and no data point markers
+
+% 13.  Use the graphics handles returned by fplot to set the width of the lines to 3 pixels.
+
+% 14. Use gca to remove the box around the plot, 
+% set the tick direction to out ('tickdir' parameter),
+% and set the font to normal weighted helvetica size 12. 
+
+% 15. Set the limits of the x-axis to -pi to pi,
+% and the limits of the y-axis to -1 to 1. 
+
+% 16. use print to save in high-quality PNG format
+% using the -r600 parameter. You pick the filename.
+
