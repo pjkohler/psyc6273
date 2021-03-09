@@ -84,11 +84,6 @@
 % 14.  Set x equal to 20 samples from -pi to pi.  Set y equal to the tangent
 % of x.  Plot y versus x with a solid green line and no data point markers.
 % Label the axes 'angle' and 'tangent'.
-x = linspace(-pi,pi,20);
-y = tan(x);
-plot(x,y,'g-');
-xlabel angle
-ylabel tangent
 
 % 15.  Use fplot to plot a sine wave on the interval [ 0, 2*pi ] with
 % a red line.
